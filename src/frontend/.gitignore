@@ -1,0 +1,7 @@
+*.swp
+*.swo
+.next
+node_modules
+.env
+coverage
+dir

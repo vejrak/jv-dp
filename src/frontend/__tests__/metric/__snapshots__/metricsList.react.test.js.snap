@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th />
+      <th />
+    </tr>
+  </thead>
+  <tbody
+    className="mt-4"
+  >
+    <tr>
+      <td>
+        name1
+      </td>
+      <td>
+        <button
+          className="mt-3 mb-3 btn d-block btn-danger btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Delete
+        </button>
+      </td>
+      <td>
+        <button
+          className="mt-3 mb-3 btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Edit
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

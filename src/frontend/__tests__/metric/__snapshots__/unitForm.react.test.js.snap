@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <label
+    htmlFor="unitName"
+  >
+    Unit name
+  </label>
+  <input
+    className="form-control mb-3"
+    id="unitName"
+    name="name"
+    onChange={[Function]}
+    value="cm"
+  />
+  <label
+    htmlFor="to_anchor"
+  >
+    To anchor
+  </label>
+  <input
+    className="form-control mb-3"
+    id="to_anchor"
+    name="to_anchor"
+    onChange={[Function]}
+    value={0.1}
+  />
+  <button
+    className="mt-3 btn d-block btn-danger btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Delete
+  </button>
+</div>
+`;

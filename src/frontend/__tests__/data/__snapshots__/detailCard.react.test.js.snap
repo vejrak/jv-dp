@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="card mb-2 mt-2 w-25"
+>
+  <div
+    className="card-body"
+  >
+    <h5
+      className="card-title"
+    >
+      Identificator: 
+      id1
+    </h5>
+    <p
+      className="card-text"
+    >
+      Description: 
+      text
+    </p>
+  </div>
+  <ul
+    className="list-group list-group-flush"
+  >
+    <li
+      className="list-group-item"
+    >
+      Min value: 
+      0
+       
+      cm
+    </li>
+    <li
+      className="list-group-item"
+    >
+      Max value: 
+      10
+       
+      cm
+    </li>
+    <li
+      className="list-group-item"
+    >
+      Mean value: 
+      5
+       
+      cm
+    </li>
+    <li
+      className="list-group item"
+    >
+      <button
+        className="small m-1 btn btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Detail
+      </button>
+    </li>
+  </ul>
+</div>
+`;

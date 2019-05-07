@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th
+        scope="col"
+      >
+        Identificator
+      </th>
+      <th
+        scope="col"
+      >
+        Description
+      </th>
+      <th
+        scope="col"
+      >
+        Datasource
+      </th>
+      <th
+        scope="col"
+      >
+        Separator
+      </th>
+      <th />
+      <th />
+    </tr>
+  </thead>
+  <tbody
+    className="mb-4"
+  >
+    <tr>
+      <td>
+        id1
+      </td>
+      <td>
+        test
+      </td>
+      <td />
+      <td />
+      <td>
+        <button
+          className="mt-3 mb-3 btn d-block btn-danger btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Delete
+        </button>
+      </td>
+      <td>
+        <button
+          className="mt-3 mb-3 btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Edit
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

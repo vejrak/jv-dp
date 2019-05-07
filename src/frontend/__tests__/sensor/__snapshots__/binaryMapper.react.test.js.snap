@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <h3
+    className="mt-3"
+  >
+    Binary mapper 2
+  </h3>
+  <label
+    htmlFor="from_byte1"
+  >
+    From byte
+  </label>
+  <input
+    className="form-control mt-2 mb-3"
+    index="from_byte1"
+    name="from_byte1"
+    onChange={[Function]}
+    type="text"
+    value={0}
+  />
+  <label
+    htmlFor="to_byte1"
+  >
+    To byte
+  </label>
+  <input
+    className="form-control mt-2"
+    index="to_byte1"
+    name="to_byte1"
+    onChange={[Function]}
+    type="text"
+    value={0}
+  />
+  <small
+    className="form-text text-muted"
+    id="separatorHelp"
+  >
+    Input string "fabacde" from byte 3 - to byte 4 =&gt; "ba"
+  </small>
+  <label
+    className="mt-2"
+    htmlFor="metric1"
+  >
+    Metrics
+  </label>
+  <select
+    className="form-control"
+    index="metric1"
+    onChange={[Function]}
+    value=""
+  />
+  
+  <div
+    className="form-check form-check-inline mt-3 col"
+  >
+    <input
+      checked={false}
+      className="form-check-input mb-3"
+      id="filterByMetric"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "15px",
+          "width": "15px",
+        }
+      }
+      type="checkbox"
+      value={false}
+    />
+    <label
+      className="form-check-label mb-1"
+      htmlFor="filterByMetric"
+    >
+      Is status
+    </label>
+  </div>
+  <small
+    className="form-text text-muted mb-3"
+    id="isStatusHelp"
+  >
+    Value will hold only status data
+  </small>
+  <button
+    className="mt-3 mb-3 btn d-block btn-danger btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Remove binary mapper
+  </button>
+</div>
+`;
+
+exports[`renders correctly with data 1`] = `
+<div>
+  <h3
+    className="mt-3"
+  >
+    Binary mapper 2
+  </h3>
+  <label
+    htmlFor="from_byte1"
+  >
+    From byte
+  </label>
+  <input
+    className="form-control mt-2 mb-3"
+    index="from_byte1"
+    name="from_byte1"
+    onChange={[Function]}
+    type="text"
+    value={1}
+  />
+  <label
+    htmlFor="to_byte1"
+  >
+    To byte
+  </label>
+  <input
+    className="form-control mt-2"
+    index="to_byte1"
+    name="to_byte1"
+    onChange={[Function]}
+    type="text"
+    value={2}
+  />
+  <small
+    className="form-text text-muted"
+    id="separatorHelp"
+  >
+    Input string "fabacde" from byte 3 - to byte 4 =&gt; "ba"
+  </small>
+  <label
+    className="mt-2"
+    htmlFor="metric1"
+  >
+    Metrics
+  </label>
+  <select
+    className="form-control"
+    index="metric1"
+    onChange={[Function]}
+    value=""
+  />
+  
+  <div
+    className="form-check form-check-inline mt-3 col"
+  >
+    <input
+      checked={false}
+      className="form-check-input mb-3"
+      id="filterByMetric"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "15px",
+          "width": "15px",
+        }
+      }
+      type="checkbox"
+      value={false}
+    />
+    <label
+      className="form-check-label mb-1"
+      htmlFor="filterByMetric"
+    >
+      Is status
+    </label>
+  </div>
+  <small
+    className="form-text text-muted mb-3"
+    id="isStatusHelp"
+  >
+    Value will hold only status data
+  </small>
+  <button
+    className="mt-3 mb-3 btn d-block btn-danger btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Remove binary mapper
+  </button>
+</div>
+`;

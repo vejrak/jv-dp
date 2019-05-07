@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="form-sensorIdMapper mt-3"
+>
+  <label
+    class-name="mt-3"
+    htmlFor="contentType"
+  >
+    Datasource
+  </label>
+  <select
+    className="form-control mb-1"
+    id="contentType"
+    onChange={[Function]}
+    value="text"
+  >
+    <option
+      value="text"
+    >
+      TEXT
+    </option>
+    <option
+      value="json"
+    >
+      JSON
+    </option>
+  </select>
+  <small
+    className="form-text text-muted mb-3"
+    id="contentTypeHelp"
+  >
+    Expected request content-type
+  </small>
+  <label
+    class-source_name="mt-2"
+    htmlFor="source_name"
+  >
+    Source name
+  </label>
+  <div>
+    <input
+      className="form-control mb-1"
+      id="source_name"
+      name="source_name"
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+  <small
+    className="form-text text-muted mb-3"
+    id="sourceNameHelp"
+  >
+    Path to value in JSON document or text Example for receive value in JSON:
+    <br />
+    key.value =&gt; {key: value}
+  </small>
+  <label
+    class-name="mt-2"
+    htmlFor="separator"
+  >
+    Separator
+  </label>
+  <input
+    className="form-control mb-1"
+    id="separator"
+    name="separator"
+    onChange={[Function]}
+    value=""
+  />
+  <small
+    className="form-text text-muted"
+    id="separatorHelp"
+  >
+    Separator used in source name
+  </small>
+  <button
+    className="mt-3 btn btn-success d-block btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Save
+  </button>
+</div>
+`;
+
+exports[`renders correctly with data 1`] = `
+<div
+  className="form-sensorIdMapper mt-3"
+>
+  <label
+    class-name="mt-3"
+    htmlFor="contentType"
+  >
+    Datasource
+  </label>
+  <select
+    className="form-control mb-1"
+    id="contentType"
+    onChange={[Function]}
+    value="json"
+  >
+    <option
+      value="text"
+    >
+      TEXT
+    </option>
+    <option
+      value="json"
+    >
+      JSON
+    </option>
+  </select>
+  <small
+    className="form-text text-muted mb-3"
+    id="contentTypeHelp"
+  >
+    Expected request content-type
+  </small>
+  <label
+    class-source_name="mt-2"
+    htmlFor="source_name"
+  >
+    Source name
+  </label>
+  <div>
+    <input
+      className="form-control mb-1"
+      id="source_name"
+      name="source_name"
+      onChange={[Function]}
+      value="key.value"
+    />
+  </div>
+  <small
+    className="form-text text-muted mb-3"
+    id="sourceNameHelp"
+  >
+    Path to value in JSON document or text Example for receive value in JSON:
+    <br />
+    key.value =&gt; {key: value}
+  </small>
+  <button
+    className="mt-3 btn btn-success d-block btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Save
+  </button>
+</div>
+`;

@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="form-group mt-3"
+>
+  <label
+    class-name="mt-2"
+    htmlFor="name"
+  >
+    Name
+  </label>
+  <div>
+    <input
+      className="form-control mb-1"
+      id="name"
+      name="name"
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+  <small
+    className="form-text text-muted"
+    id="nameHelp"
+  >
+    Name of group
+  </small>
+  <button
+    className="mt-3 btn btn-success d-block btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Save
+  </button>
+</div>
+`;
+
+exports[`renders correctly with data 1`] = `
+<div
+  className="form-group mt-3"
+>
+  <label
+    class-name="mt-2"
+    htmlFor="name"
+  >
+    Name
+  </label>
+  <div>
+    <input
+      className="form-control mb-1"
+      id="name"
+      name="name"
+      onChange={[Function]}
+      value="name1"
+    />
+  </div>
+  <small
+    className="form-text text-muted"
+    id="nameHelp"
+  >
+    Name of group
+  </small>
+  <button
+    className="mt-3 btn btn-success d-block btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Save
+  </button>
+</div>
+`;

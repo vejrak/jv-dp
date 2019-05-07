@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <h3>
+    Mapper 2
+  </h3>
+  <label
+    htmlFor="source_name1"
+  >
+    Source name
+  </label>
+  <input
+    className="form-control mt-2"
+    index="source_name1"
+    name="source_name1"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <small
+    className="form-text text-muted mb-3"
+    id="sourceNameHelp"
+  >
+    Path to value in JSON document or text Example for receive value in JSON:
+    <br />
+    key.value =&gt; {key: value}
+  </small>
+  <label
+    className="mt-2"
+    htmlFor="metric1"
+  >
+    Metrics
+  </label>
+  <select
+    className="form-control"
+    index="metric1"
+    onChange={[Function]}
+    value=""
+  />
+  
+  <div
+    className="form-check form-check-inline mt-3 col"
+  >
+    <input
+      checked={false}
+      className="form-check-input mb-1"
+      id="isStatus"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "15px",
+          "width": "15px",
+        }
+      }
+      type="checkbox"
+      value={false}
+    />
+    <label
+      className="form-check-label mb-1"
+      htmlFor="isStatus"
+    >
+      Is status
+    </label>
+  </div>
+  <small
+    className="form-text text-muted mb-3"
+    id="isStatusHelp"
+  >
+    Value will hold only status data
+  </small>
+  <button
+    className="btn btn-danger mt-3 btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Delete
+  </button>
+</div>
+`;
+
+exports[`renders correctly with data 1`] = `
+<div>
+  <h3>
+    Mapper 2
+  </h3>
+  <label
+    htmlFor="source_name1"
+  >
+    Source name
+  </label>
+  <input
+    className="form-control mt-2"
+    index="source_name1"
+    name="source_name1"
+    onChange={[Function]}
+    type="text"
+    value="key.name"
+  />
+  <small
+    className="form-text text-muted mb-3"
+    id="sourceNameHelp"
+  >
+    Path to value in JSON document or text Example for receive value in JSON:
+    <br />
+    key.value =&gt; {key: value}
+  </small>
+  <label
+    className="mt-2"
+    htmlFor="metric1"
+  >
+    Metrics
+  </label>
+  <select
+    className="form-control"
+    index="metric1"
+    onChange={[Function]}
+    value=""
+  />
+  
+  <div
+    className="form-check form-check-inline mt-3 col"
+  >
+    <input
+      checked={false}
+      className="form-check-input mb-1"
+      id="isStatus"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "15px",
+          "width": "15px",
+        }
+      }
+      type="checkbox"
+      value={false}
+    />
+    <label
+      className="form-check-label mb-1"
+      htmlFor="isStatus"
+    >
+      Is status
+    </label>
+  </div>
+  <small
+    className="form-text text-muted mb-3"
+    id="isStatusHelp"
+  >
+    Value will hold only status data
+  </small>
+  <button
+    className="btn btn-danger mt-3 btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Delete
+  </button>
+</div>
+`;

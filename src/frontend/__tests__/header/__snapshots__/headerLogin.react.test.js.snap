@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with log in 1`] = `
+Array [
+  <li
+    className="nav-item"
+  >
+    <span
+      className="nav-link"
+    >
+      Logged as 
+    </span>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Change password
+    </a>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Logout
+    </a>
+  </li>,
+]
+`;
+
+exports[`renders correctly without log in 1`] = `
+<li
+  className="nav-item"
+>
+  <a
+    className="nav-link"
+    href="/login"
+    onClick={[Function]}
+  >
+    Login
+  </a>
+</li>
+`;

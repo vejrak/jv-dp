@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["@babel/preset-env",  {
+        "targets": {
+          "node": "current"
+        }
+    }],
+    "@babel/preset-flow"
+  ],
+  "plugins": [
+    "babel-plugin-dynamic-import-node",
+    "@babel/plugin-transform-flow-strip-types",
+    "@babel/plugin-proposal-object-rest-spread"
+  ]
+}

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with loggin 1`] = `
+Array [
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Data
+    </a>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Metrics
+    </a>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Sensors
+    </a>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Groups
+    </a>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Sensor id mappers
+    </a>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="#"
+      onClick={[Function]}
+    >
+      User
+    </a>
+  </li>,
+]
+`;
+
+exports[`renders correctly without login 1`] = `null`;

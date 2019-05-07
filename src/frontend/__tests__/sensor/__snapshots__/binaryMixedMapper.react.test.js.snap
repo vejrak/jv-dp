@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <h3>
+    Mapper 2
+  </h3>
+  <label
+    htmlFor="source_name1"
+  >
+    Source Path
+  </label>
+  <input
+    className="form-control mt-2"
+    index="source_name1"
+    name="source_name1"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <small
+    className="form-text text-muted mb-3"
+    id="sourceNameHelp"
+  >
+    Path to value in JSON document or text Example for receive value in JSON:
+    <br />
+    key.value =&gt; {key: value}
+  </small>
+  <button
+    className="mt-3 btn btn-primary btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Add new binary mapper
+  </button>
+  <button
+    className="mt-3 d-block btn btn-danger btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Remove mixed mapper
+  </button>
+</div>
+`;
+
+exports[`renders correctlyi with data 1`] = `
+<div>
+  <h3>
+    Mapper 2
+  </h3>
+  <label
+    htmlFor="source_name1"
+  >
+    Source Path
+  </label>
+  <input
+    className="form-control mt-2"
+    index="source_name1"
+    name="source_name1"
+    onChange={[Function]}
+    type="text"
+    value="key.value"
+  />
+  <small
+    className="form-text text-muted mb-3"
+    id="sourceNameHelp"
+  >
+    Path to value in JSON document or text Example for receive value in JSON:
+    <br />
+    key.value =&gt; {key: value}
+  </small>
+  <button
+    className="mt-3 btn btn-primary btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Add new binary mapper
+  </button>
+  <button
+    className="mt-3 d-block btn btn-danger btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Remove mixed mapper
+  </button>
+</div>
+`;

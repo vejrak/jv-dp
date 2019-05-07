@@ -1,0 +1,8 @@
+require('./authTests')
+require('./userTests')
+require('./metricTests')
+require('./groupTests')
+require('./sensorTests')
+require('./datasourceTests')
+require('./sensorIdMapperTests')
+require('./dataTests')

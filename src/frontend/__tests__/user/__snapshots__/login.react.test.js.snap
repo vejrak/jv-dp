@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    htmlFor="username"
+  >
+    Username
+  </label>
+  <div>
+    <input
+      className="form-control"
+      id="username"
+      name="username"
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+  <label
+    className="mt-2"
+    htmlFor="password"
+  >
+    Password
+  </label>
+  <div>
+    <input
+      className="form-control"
+      name="password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+  </div>
+  <button
+    className="mt-4 btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Login
+  </button>
+</div>
+`;
