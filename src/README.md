@@ -1,4 +1,4 @@
-# Přírůčka
+# Příručka
 ### Testovací aplikace 
 (Heroku uspává aplikaci po delší neaktivitě, takže první požadavek může trvat déle)
 
