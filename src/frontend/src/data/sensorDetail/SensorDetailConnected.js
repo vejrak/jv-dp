@@ -1,7 +1,12 @@
 // @flow
 
 import { connect } from 'react-redux'
-import { getData, getSensorDataMetrics, getStatusData } from '../actions'
+import {
+  getData,
+  getSensorDataMetrics,
+  getStatusData,
+  resetSensorDetail,
+} from '../actions'
 import SensorDetail from './SensorDetail'
 
 export default connect(
@@ -13,5 +18,5 @@ export default connect(
     metrics: sensorDataMetrics.metrics,
     error: dataList.error || sensorDataMetrics.error || statusData.error,
   }),
-  { getData, getStatusData, getSensorDataMetrics },
+  { getData, getStatusData, getSensorDataMetrics, resetSensorDetail },
 )(SensorDetail)

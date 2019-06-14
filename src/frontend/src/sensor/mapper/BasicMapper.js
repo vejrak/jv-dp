@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap'
 import find from 'lodash/find'
 import some from 'lodash/some'
 import type { Metric } from '../../types'
+import { getMetricById, getFirstUnitOfMetric } from '../../helpers'
 
 type Props = $ReadOnly<{|
   index: number,
@@ -55,6 +56,14 @@ class MapperForm extends React.PureComponent<Props, State> {
     this.setState({ ...value }, () => this.props.editMapper({ ...this.state }))
   }
 
+  handleMetricChange = (metricId: string) => {
+    const metric = getMetricById(metricId, this.props.metrics)
+    const unit = getFirstUnitOfMetric(metric)
+    this.setState({ metric: metricId, unit }, () =>
+      this.props.editMapper({ ...this.state }),
+    )
+  }
+
   render() {
     const { is_status, source_name, unit, metric } = this.state
     const { index, removeMapper, metrics } = this.props
@@ -88,9 +97,7 @@ class MapperForm extends React.PureComponent<Props, State> {
             <select
               className="form-control"
               index={`metric${index}`}
-              onChange={({ target }) =>
-                this.handleChange({ metric: target.value })
-              }
+              onChange={({ target }) => this.handleMetricChange(target.value)}
               value={metric}
             >
               {metrics.map((value) => (

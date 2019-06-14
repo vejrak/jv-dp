@@ -43,6 +43,7 @@ export type BinaryMapper = {
 }
 
 export type Data = {
+  _id: string,
   sensor_id: string,
   value: string,
   metric: Metric,

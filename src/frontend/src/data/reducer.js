@@ -67,6 +67,13 @@ const INITIAL_DATA_STATE = {
 
 const reducer = (state: DataState = INITIAL_DATA_STATE, action: DataAction) => {
   switch (action.type) {
+    case 'SENSOR_DETAIL_RESET':
+      return {
+        ...state,
+        dataList: INITIAL_DATA_LIST_STATE,
+        statusData: INITIAL_DATA_STATUS_STATE,
+        sensorDataMetrics: INITIAL_SENSOR_DATA_METRICS_STATE,
+      }
     case 'SENSOR_DATA_METRICS_PENDING':
       return {
         ...state,

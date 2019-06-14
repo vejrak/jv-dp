@@ -49,7 +49,6 @@ export const createUser = (data: Object) => async ({
 }: (ActionDeps) => Promise<CreateUserAction>) => {
   try {
     dispatch({ type: 'CREATE_USER_PENDING' })
-    console.log('data', data)
     await apiClient.postAuth('/users', data)
     dispatch(await getUsers())
 

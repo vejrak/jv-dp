@@ -25,17 +25,20 @@ type DataStatusAction =
   | { type: 'DATA_STATUS_FULFILLED', data: Object }
   | { type: 'DATA_STATUS_REJECTED', payload: ErrorResponse }
 
+type SensorDetailResetAction = { type: 'SENSOR_DETAIL_RESET' }
+
 export type DataAction =
   | DataOverviewAction
   | DataListAction
   | SensorDataMetricsAction
   | DataStatusAction
+  | SensorDetailResetAction
 
 export const getData = (
   sensorId: string,
   metricId: ?string,
   unit: ?string,
-  filterDataLast: ?string,
+  filterDataLast: string,
 ) => async ({
   apiClient,
   dispatch,
@@ -43,8 +46,12 @@ export const getData = (
   try {
     dispatch({ type: 'DATA_LIST_PENDING' })
     let url = `/data/${sensorId}`
-    if (unit && metricId) url = url.concat(`/${metricId}?convertUnit=${unit}`)
-    if (filterDataLast) url = url.concat(`&lastDate=${filterDataLast}`)
+    if (unit && metricId)
+      url = url.concat(
+        `/${metricId}?convertUnit=${unit}&lastDate=${filterDataLast}`,
+      )
+    else if (filterDataLast && !metricId)
+      url = url.concat(`?lastDate=${filterDataLast}`)
     const { data: result } = await apiClient.getAuth(url)
 
     return { type: 'DATA_LIST_FULFILLED', data: result }
@@ -52,6 +59,12 @@ export const getData = (
     if (shouldLogout(err)) dispatch(logout())
     return { type: 'DATA_LIST_REJECTED', payload: getError(err) }
   }
+}
+
+export const resetSensorDetail = () => async ({
+  dispatch,
+}: (ActionDeps) => Promise<SensorDataMetricsAction>) => {
+  return dispatch({ type: 'SENSOR_DETAIL_RESET' })
 }
 
 export const getSensorDataMetrics = (sensorId: string) => async ({

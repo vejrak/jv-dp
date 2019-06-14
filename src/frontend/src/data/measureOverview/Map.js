@@ -14,7 +14,7 @@ type Props = {
 }
 
 const Map = ({ sensors, showItemDetail }: Props) => {
-  if (!GOOGLE_MAP_TOKEN)
+  if (GOOGLE_MAP_TOKEN)
     return <GoogleMaps sensors={sensors} showItemDetail={showItemDetail} />
   if (MAPBOX_TOKEN)
     return <MapboxMaps sensors={sensors} showItemDetail={showItemDetail} />

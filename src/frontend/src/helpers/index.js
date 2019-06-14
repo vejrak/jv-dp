@@ -1,8 +1,9 @@
 // @flow
 
 import includes from 'lodash/includes'
+import find from 'lodash/find'
 import type { ValidationResult } from './validation'
-import type { Group } from '../types'
+import type { Group, Metric } from '../types'
 
 export const canShowUpdateForm = (
   idsList: Array<string>,
@@ -32,3 +33,11 @@ export const createGroupsOptions = (groups?: Array<Group>): Array<Object> => {
     label: group.name,
   }))
 }
+
+export const getMetricById = (
+  metricId: string,
+  metrics: Array<Metric>,
+): ?Metric => find(metrics, (metric) => metric._id === metricId)
+
+export const getFirstUnitOfMetric = (metric: ?Metric): string =>
+  metric && metric.units.length ? metric.units[0].name : ''

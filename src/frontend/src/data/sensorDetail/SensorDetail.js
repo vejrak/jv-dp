@@ -3,11 +3,17 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { CSVLink } from 'react-csv'
-import find from 'lodash/find'
-import { getData, getStatusData, getSensorDataMetrics } from '../actions'
+import {
+  getData,
+  getStatusData,
+  getSensorDataMetrics,
+  resetSensorDetail,
+} from '../actions'
 import type { Data, ErrorResponse, Metric, MomentDiffUnit } from '../../types'
 import Spinner from '../../components/Spinner'
 import Graph from './Graph'
+import { getMetricById, getFirstUnitOfMetric } from '../../helpers'
+import StatusList from './StatusList'
 
 type Props = $ReadOnly<{|
   error: ?ErrorResponse,
@@ -19,6 +25,7 @@ type Props = $ReadOnly<{|
   getData: typeof getData,
   getStatusData: typeof getStatusData,
   getSensorDataMetrics: typeof getSensorDataMetrics,
+  resetSensorDetail: typeof resetSensorDetail,
   sensorId: string,
   // eslint-disable-next-line
   metrics: Array<Metric>,
@@ -26,57 +33,41 @@ type Props = $ReadOnly<{|
 |}>
 
 type State = {
-  metric: ?Metric,
+  metric: string,
   lastDateUnit: MomentDiffUnit | 'all',
   unit: ?string,
   filterByMetric: boolean,
 }
 
+const defaultState = {
+  metric: '',
+  lastDateUnit: 'all',
+  unit: null,
+  filterByMetric: true,
+}
+
 class SensorDetail extends React.PureComponent<Props, State> {
   state = {
-    metric: null,
-    lastDateUnit: 'weeks',
-    unit: null,
-    filterByMetric: true,
+    ...defaultState,
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { getSensorDataMetrics, getStatusData, sensorId } = this.props
-    getSensorDataMetrics(sensorId)
+    await getSensorDataMetrics(sensorId)
     getStatusData(sensorId)
   }
 
-  componentDidUpdate(prevProps: Props, prevState: State) {
-    const { getData, sensorId, metrics } = this.props
-    const { unit, metric, filterByMetric, lastDateUnit } = this.state
-    const {
-      unit: prevUnit,
-      metric: prevMetric,
-      filterByMetric: filterByMetricPrev,
-      lastDateUnit: lastDateUnitPrev,
-    } = prevState
-    if (
-      metrics &&
-      (unit !== prevUnit ||
-        metric !== prevMetric ||
-        filterByMetric !== filterByMetricPrev ||
-        lastDateUnit !== lastDateUnitPrev)
-    ) {
-      if (metric && unit && filterByMetric)
-        getData(sensorId, metric._id, unit, lastDateUnit)
-      else getData(sensorId, null, null, lastDateUnit)
-    }
-  }
-
   static getDerivedStateFromProps(props: Props, state: State) {
-    const { metrics } = props
-    const { unit, metric } = state
+    const { metrics, sensorId, getData } = props
+    const { unit, metric, lastDateUnit } = state
     if (metrics && !metric) {
-      const metric = metrics[0] || null
+      const metric = metrics[0] || ''
       const newUnit =
         unit || (metric && metric.units.length && metric.units[0].name) || null
+      if (metric && newUnit)
+        getData(sensorId, metric._id, newUnit, lastDateUnit)
       return {
-        metric,
+        metric: metric ? metric._id : '',
         unit: newUnit,
       }
     }
@@ -84,12 +75,29 @@ class SensorDetail extends React.PureComponent<Props, State> {
   }
 
   handleChange = (value: Object): void => {
-    this.setState({ ...value })
+    this.setState({ ...value }, () => {
+      const { getData, sensorId } = this.props
+      const { metric, unit, lastDateUnit, filterByMetric } = this.state
+      if (metric && unit && filterByMetric)
+        getData(sensorId, metric, unit, lastDateUnit)
+      else getData(sensorId, null, null, lastDateUnit)
+    })
+  }
+
+  goBack = async () => {
+    await this.props.resetSensorDetail()
+    this.setState(
+      {
+        ...defaultState,
+      },
+      () => {
+        this.props.backToList()
+      },
+    )
   }
 
   render() {
     const {
-      backToList,
       dataCollection,
       isFetching,
       isFetchingData,
@@ -97,9 +105,10 @@ class SensorDetail extends React.PureComponent<Props, State> {
       statusData,
       error,
     } = this.props
-    const { lastDateUnit, filterByMetric, metric, unit } = this.state
+    const { lastDateUnit, filterByMetric, metric: metricId, unit } = this.state
 
     if (isFetching || (isFetchingData && !filterByMetric)) return <Spinner />
+    const metric = getMetricById(metricId, metrics)
 
     return (
       <div>
@@ -108,7 +117,7 @@ class SensorDetail extends React.PureComponent<Props, State> {
             {error.errmsg}
           </div>
         )}
-        <Button className="small" onClick={backToList}>
+        <Button className="small" onClick={this.goBack}>
           Back
         </Button>
         <div className="mt-3">
@@ -123,7 +132,10 @@ class SensorDetail extends React.PureComponent<Props, State> {
             className="form-check-input mb-3"
             id="filterByMetric"
             onChange={() => {
-              this.handleChange({ filterByMetric: !filterByMetric })
+              this.handleChange({
+                filterByMetric: !filterByMetric,
+                lastDateUnit: !filterByMetric ? lastDateUnit : 'all',
+              })
             }}
             style={{ width: '15px', height: '15px' }}
             type="checkbox"
@@ -142,12 +154,14 @@ class SensorDetail extends React.PureComponent<Props, State> {
               <select
                 className="form-control mb-3"
                 id="metric"
-                onChange={({ target }) =>
+                onChange={({ target }) => {
+                  const metric = getMetricById(target.value, metrics)
                   this.handleChange({
-                    metric: find(metrics, (o) => o._id === target.value),
+                    metric: target.value,
+                    unit: getFirstUnitOfMetric(metric),
                   })
-                }
-                value={metric}
+                }}
+                value={metricId}
               >
                 {metrics.map((item) => (
                   <option key={item._id} value={item._id}>
@@ -201,29 +215,7 @@ class SensorDetail extends React.PureComponent<Props, State> {
             ) : (
               unit && dataCollection && <Graph data={dataCollection} />
             )}
-            {statusData.length > 0 && (
-              <div className="mt-5 col-12">
-                <h3 className="pt-1 pb-1">Last 10 status sent by sensor</h3>
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Code</th>
-                      <th scope="col">Created</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {statusData.slice(-5).map((item, key) => (
-                      <tr>
-                        <th scope="row">{key + 1}</th>
-                        <td>{item.value}</td>
-                        <td>{item.createdAt}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
+            <StatusList statusData={statusData} />
           </div>
         )}
       </div>

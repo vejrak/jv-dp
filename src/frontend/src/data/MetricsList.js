@@ -34,7 +34,7 @@ class MetricsList extends React.PureComponent<Props> {
     if (!metrics || metrics.length === 0) return null
     return (
       <>
-        <h2>Metrics</h2>
+        <h2>Map of sensors (by metric)</h2>
         <table className="table">
           <thead>
             <tr>
