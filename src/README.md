@@ -1,4 +1,4 @@
-# Přírůčka
+# Příručka
 ### Testovací aplikace 
 (Heroku uspává aplikaci po delší neaktivitě, takže první požadavek může trvat déle)
 
@@ -34,8 +34,11 @@ Content-Type application/json
 ## Instalace
 ### Požadavky
 Node.js v8.12.0
+
 npm 6.4.1
+
 yarn 1.12.3
+
 MongoDB
 ### Backend
 Mapa API: https://app.swaggerhub.com/apis-docs/mmericus/diplomova-prace/1.0.0
