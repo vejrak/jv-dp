@@ -56,7 +56,7 @@
     "node": "^12.1.0",
     "node-sass": "^4.10.0",
     "prettier": "^1.15.1",
-    "qs": "^6.5.2",
+    "qs": "^6.7.3",
     "react": "^16.5.2",
     "react-bootstrap": "1.0.0-beta.8",
     "react-csv": "^1.0.19",
